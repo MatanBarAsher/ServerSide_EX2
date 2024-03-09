@@ -1,4 +1,6 @@
-﻿namespace EX2.BL
+﻿using EX2.DAL;
+
+namespace EX2.BL
 {
     public class Flat
     {
@@ -11,13 +13,13 @@
 
 
         // standart constractor
-        public Flat(string id, string city, string address, double price, int numOfRooms)
+        public Flat(string id, string city, string address, double numOfRooms, double price)
         {
             Id = id;
             City = city;
             Address = address;
             NumOfRooms = numOfRooms;
-            Price = price;
+            Price = Discount(price, numOfRooms);
         }
 
         // empty constractor
@@ -29,18 +31,25 @@
         public string City { get => city; set => city = value; }
         public string Address { get => address; set => address = value; }
         public double NumOfRooms { get => numOfRooms; set => numOfRooms = value; }
-        public double Price { get => price; set => price = Discount(value, numOfRooms); }
+        public double Price { get => price; set => price = Discount(value, NumOfRooms); }
 
-        public int Insert()
+        public int InsertFlat()
         {
+            DBservices dbs = new DBservices();
+            try {
             if (CheckFlatId(this))
             {
                 flatsList.Add(this);
-                return 1;
+                return dbs.InsertFlat(this);
             }
             else
             {
-                return 0;
+                    return 0;
+                    throw new Exception(); 
+            }
+            }
+            catch (Exception) {
+                throw new Exception("Flat ID already exist.");
             }
         }
 
@@ -57,9 +66,10 @@
             return true;
         }
 
-        public List<Flat> Read()
+        public List<Flat> ReadFlats()
         {
-            return flatsList;
+            DBservices dbs = new DBservices();
+            return dbs.ReadFlats();
         }
 
         public double Discount(double price, double rooms)

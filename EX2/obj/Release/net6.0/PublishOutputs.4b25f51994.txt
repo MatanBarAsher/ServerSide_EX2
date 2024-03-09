@@ -9,3 +9,9 @@ C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד �
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\System.Data.SqlClient.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\runtimes\win-x64\native\sni.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\runtimes\win-x86\native\sni.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

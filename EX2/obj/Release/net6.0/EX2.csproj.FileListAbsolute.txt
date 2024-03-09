@@ -24,9 +24,16 @@ C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד �
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\staticwebassets\msbuild.buildTransitive.EX2.props
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\staticwebassets.pack.json
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\scopedcss\bundle\EX2.styles.css
-C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\EX2.csproj.CopyComplete
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\EX2.dll
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\refint\EX2.dll
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\EX2.pdb
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\EX2.genruntimeconfig.cache
 C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\ref\EX2.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\EX2.sourcelink.json
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\bin\Release\net6.0\System.Data.SqlClient.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\bin\Release\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\bin\Release\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\bin\Release\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\bin\Release\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\bin\Release\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\matan\OneDrive\שולחן העבודה\לימודים\שנה ד'\צד שרת\Home Assignments\EX2\EX2\obj\Release\net6.0\EX2.csproj.Up2Date

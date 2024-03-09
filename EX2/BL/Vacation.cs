@@ -1,4 +1,6 @@
-﻿namespace EX2.BL
+﻿using EX2.DAL;
+
+namespace EX2.BL
 {
     public class Vacation
     {
@@ -26,22 +28,30 @@
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }
 
-        public int Insert()
+        public int InsertVacation()
         {
+            DBservices dbs = new DBservices();
+            try { 
             if (CheckOrderId(this) && IsAvalible(this))
             {
                 ordersList.Add(this);
-                return 1;
+                return dbs.InsertVacation(this) ;
             }
             else
             {
                 return 0;
+                throw new Exception();
+            }
+            }
+            catch (Exception) {
+                throw new Exception("Dates are taken. / ID exist.");
             }
         }
 
-        public List<Vacation> Read()
+        public List<Vacation> ReadVacations()
         {
-            return ordersList;
+            DBservices dbs = new DBservices();
+            return dbs.ReadVacations();
         }
 
         public bool CheckOrderId(Vacation order)

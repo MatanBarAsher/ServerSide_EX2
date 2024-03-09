@@ -11,10 +11,10 @@ namespace EX2.Controllers
     {
         // GET: api/<OrdersController>
         [HttpGet]
-        public IEnumerable<Vacation> Get()
+        public List<Vacation> ReadVacations()
         {
             Vacation o = new Vacation();
-            return  o.Read();
+            return  o.ReadVacations();
         }
 
         // GET api/<OrdersController>/5
@@ -28,7 +28,7 @@ namespace EX2.Controllers
         [HttpPost]
         public int Post([FromBody] Vacation order)
         {
-            return order.Insert();
+            return order.InsertVacation();
         }
 
         // PUT api/<OrdersController>/5

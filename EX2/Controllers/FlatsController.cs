@@ -11,10 +11,10 @@ namespace EX2.Controllers
     {
         // GET: api/<FlatsController>
         [HttpGet]
-        public IEnumerable<Flat> Get()
+        public List<Flat> ReadFlats()
         {
             Flat f = new Flat();
-            return f.Read();
+            return f.ReadFlats();
         }
 
         [HttpGet("maxPrice")]
@@ -33,7 +33,7 @@ namespace EX2.Controllers
         [HttpPost]
         public int Post([FromBody] Flat flat)
         {
-            return flat.Insert();
+            return flat.InsertFlat();
         }
 
         // PUT api/<FlatsController>/5

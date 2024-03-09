@@ -408,9 +408,7 @@ namespace EX2.DAL
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
 
-            cmd.Parameters.AddWithValue("@id", order.Id);
-
-            cmd.Parameters.AddWithValue("@userId", order.UserId);
+            cmd.Parameters.AddWithValue("@userEmail", order.UserEmail);
 
             cmd.Parameters.AddWithValue("@flatId", order.FlatId);
 
@@ -604,9 +602,8 @@ namespace EX2.DAL
                 while (dataReader.Read())
                 {
                     Vacation v = new Vacation();
-                    v.Id = dataReader["id"].ToString();
                     v.FlatId = dataReader["flatId"].ToString();
-                    v.UserId = dataReader["userId"].ToString();
+                    v.UserEmail = dataReader["userEmail"].ToString();
                     v.StartDate = Convert.ToDateTime(dataReader["startDate"]);
                     v.EndDate = Convert.ToDateTime(dataReader["endDate"]);
 

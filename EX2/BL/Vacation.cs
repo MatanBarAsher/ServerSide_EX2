@@ -4,17 +4,15 @@ namespace EX2.BL
 {
     public class Vacation
     {
-        string id;
-        string userId;
+        string userEmail;
         string flatId;
         DateTime startDate; //yy-mm-dd
         DateTime endDate; //yy-mm-dd
         static List<Vacation> ordersList = new List<Vacation>();
 
-        public Vacation(string id, string userId, string flatId, DateTime startDate, DateTime endDate)
+        public Vacation( string userEmail, string flatId, DateTime startDate, DateTime endDate)
         {
-            Id = id;
-            UserId = userId;
+            UserEmail = userEmail;
             FlatId = flatId;
             StartDate = startDate;
             EndDate = endDate;
@@ -22,8 +20,7 @@ namespace EX2.BL
 
         public Vacation() { }
 
-        public string Id { get => id; set => id = value; }
-        public string UserId { get => userId; set => userId = value; }
+        public string UserEmail { get => userEmail; set => userEmail = value; }
         public string FlatId { get => flatId; set => flatId = value; }
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime EndDate { get => endDate; set => endDate = value; }
@@ -32,7 +29,7 @@ namespace EX2.BL
         {
             DBservices dbs = new DBservices();
             try { 
-            if (CheckOrderId(this) && IsAvalible(this))
+            if (IsAvalible(this))
             {
                 ordersList.Add(this);
                 return dbs.InsertVacation(this) ;
@@ -54,17 +51,17 @@ namespace EX2.BL
             return dbs.ReadVacations();
         }
 
-        public bool CheckOrderId(Vacation order)
-        {
-            foreach (Vacation element in ordersList)
-            { // Check if the flatId matches
-                if (order.Id == element.Id)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        //public bool CheckOrderId(Vacation order)
+        //{
+        //    foreach (Vacation element in ordersList)
+        //    { // Check if the flatId matches
+        //        if (order.UserEmail == element.UserEmail)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return true;
+        //}
 
         public bool IsAvalible(Vacation order)
         {
@@ -102,8 +99,5 @@ namespace EX2.BL
             }
             return tempList;
         }
-
-
-
     }
 }

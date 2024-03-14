@@ -1,7 +1,6 @@
 ﻿using EX2.BL;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using System.Collections.Generic;
 
 namespace EX2.Controllers
 {
@@ -13,14 +12,9 @@ namespace EX2.Controllers
         [HttpGet]
         public List<User> ReadUsers()
         {
-            User u = new User();
-            return u.ReadUsers();
+            User user = new User();
+            return user.ReadUsers();
         }
-        //public IEnumerable<User> Get()
-        //{
-        //    User u = new User();
-        //    return u.Read(); 
-        //}
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
@@ -36,30 +30,17 @@ namespace EX2.Controllers
             return user.InsertUser();
         }
 
-        [HttpPost]
-        [Route("Login")]
+        [HttpPost("Login")]
         public User CheckLogin([FromBody] User user)
         {
             return user.CheckLogin();
         }
 
-
-        // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("Update")]
+        public User Update([FromBody] User user)
         {
+            return user.UpdateUser(user);
         }
 
-        // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-
-        [HttpPut("update")]
-        public int UpdateUser([FromBody] User updatedUser)
-        {
-            return updatedUser.UpdateUser(updatedUser.Email, updatedUser.FirstName, updatedUser.FamilyName, updatedUser.Password);
-        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using EX2.BL;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using System.Collections.Generic;
 
 namespace EX2.Controllers
 {
@@ -13,20 +12,14 @@ namespace EX2.Controllers
         [HttpGet]
         public List<Flat> ReadFlats()
         {
-            Flat f = new Flat();
-            return f.ReadFlats();
+            Flat flat = new Flat();
+            return flat.ReadFlats();
         }
 
         [HttpGet("maxPrice")]
-        public IEnumerable<Flat> GetFlatMaxPriceByCity(double price, string city) {
-            return Flat.GetFlatMaxPriceByCity(price, city);
-        }
-
-        // GET api/<FlatsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public IEnumerable<Flat> GetFlatMaxPriceByCity(double price, string city)
         {
-            return "value";
+            return Flat.GetFlatMaxPriceByCity(price, city);
         }
 
         // POST api/<FlatsController>
@@ -34,18 +27,6 @@ namespace EX2.Controllers
         public int Post([FromBody] Flat flat)
         {
             return flat.InsertFlat();
-        }
-
-        // PUT api/<FlatsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<FlatsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

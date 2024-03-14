@@ -180,9 +180,9 @@ namespace EX2.DAL
 
             cmd.Parameters.AddWithValue("@password", user.Password);
 
-            cmd.Parameters.AddWithValue("@isActive", user.IsActive);
+            //cmd.Parameters.AddWithValue("@isActive", user.IsActive);
 
-            cmd.Parameters.AddWithValue("@isAdmin", user.IsAdmin);
+            //cmd.Parameters.AddWithValue("@isAdmin", user.IsAdmin);
 
             return cmd;
         }
@@ -193,7 +193,7 @@ namespace EX2.DAL
         // This method Updates a user at user table 
         //--------------------------------------------------------------------------------------------------
 
-        public int UpdateUser(User user)
+        public User UpdateUser(User user)
         {
             SqlConnection con;
             SqlCommand cmd;
@@ -212,8 +212,33 @@ namespace EX2.DAL
 
             try
             {
-                int numEffected = cmd.ExecuteNonQuery(); // execute the command
-                return numEffected;
+                 SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                User u = null; // Initialize the User object
+
+                while (dataReader.Read())
+                {
+                    u = new User
+                    {
+                        Email = dataReader["email"].ToString(),
+                        FamilyName = dataReader["familyName"].ToString(),
+                        FirstName = dataReader["firstName"].ToString(),
+                        Password = dataReader["password"].ToString(),
+                        IsActive = Convert.ToBoolean(dataReader["isActive"]),
+                        IsAdmin = Convert.ToBoolean(dataReader["isAdmin"])
+                    };
+                }
+
+                if (u != null)
+                {
+                    // Login successful
+                    return u;
+                }
+                else
+                {
+                    // Login failed, return null or throw an exception as needed
+                    return null;
+                }
             }
             catch (Exception ex)
             {
@@ -257,10 +282,14 @@ namespace EX2.DAL
             cmd.Parameters.AddWithValue("@Email", user.Email);
 
             cmd.Parameters.AddWithValue("@Password", user.Password);
+
+            cmd.Parameters.AddWithValue("@isActive", user.IsActive);
+            
+            cmd.Parameters.AddWithValue("@isAdmin", user.IsAdmin);
+
+
             return cmd;
         }
-
-
 
         //--------------------------------------------------------------------------------------------------
         // This method checks a user login at user table 
@@ -643,6 +672,75 @@ namespace EX2.DAL
             cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
+
+            return cmd;
+        }
+
+
+        public Object ReadReport(int month)
+        {
+
+            SqlConnection con;
+            SqlCommand cmd;
+            List<Object> reports = new List<Object>();
+
+            try
+            {
+                con = connect("myProjDB"); // create the connection
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+            cmd = CreateReportCommandWithStoredProcedure("SP_ReadReport", con, month);             // create the command
+
+            try
+            {
+                SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dataReader.Read())
+                {
+                    reports.Add(new
+                    {
+                        city = dataReader["city"].ToString(),
+                        averagePrice = Convert.ToDouble(dataReader["AveragePricePerNight"])
+                    });
+                }
+                return reports;
+            }
+            catch (Exception ex)
+            {
+                // write to log
+                throw (ex);
+            }
+
+            finally
+            {
+                if (con != null)
+                {
+                    // close the db connection
+                    con.Close();
+                }
+            }
+
+        }
+
+        private SqlCommand CreateReportCommandWithStoredProcedure(String spName, SqlConnection con, int month)
+        {
+
+
+            SqlCommand cmd = new SqlCommand(); // create the command object
+
+            cmd.Connection = con;              // assign the connection to the command object
+
+            cmd.CommandText = spName;      // can be Select, Insert, Update, Delete 
+
+            cmd.CommandTimeout = 10;           // Time to wait for the execution' The default is 30 seconds
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure; // the type of the command, can also be text
+
+            cmd.Parameters.AddWithValue("@month", month);
 
             return cmd;
         }
